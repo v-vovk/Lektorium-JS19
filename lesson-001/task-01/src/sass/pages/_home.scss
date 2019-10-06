@@ -218,6 +218,8 @@ body {
 
     .card {
         height: 50vh;
+        border-radius: 0;
+        border: 0;
     }
 
     &-group {
@@ -305,6 +307,120 @@ body {
             color: #000000;
             letter-spacing: 1px;
         }
+    }
+
+    .project-card {
+        width: 55%;
+
+        &-container {
+            padding: 15%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-title {
+            color: $middleGrey;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 28px;
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+
+            &__item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+
+            &__key,
+            &__value {
+                margin-bottom: 0;
+                color: $middleGrey;
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 12px;
+                text-transform: uppercase;
+                transition: all 0.3s;
+            }
+
+            &__key {
+                margin-right: 5px;
+                font-weight: 500;
+            }
+        }
+
+        &__link {
+            position: relative;
+            padding-left: 30px;
+            color: $middleGrey;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 24px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+
+            &:hover {
+                text-decoration: none;
+                //letter-spacing: 1px;
+
+                &:before {
+                    opacity: 1;
+                    left: 0;
+                }
+            }
+
+            &:before {
+                position: absolute;
+                content: '';
+                background-image: url(../img/arrow_icon_yelloe.svg);
+                background-size: cover;
+                width: 19px;
+                height: 15px;
+                top: calc(50% - 8px);
+                left: -10px;
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                transition: all 0.3s;
+            }
+        }
+
+        &__like {
+            position: relative;
+            margin-left: 100px;
+
+            img {
+                width: 24px;
+            }
+
+            .like-counter {
+                position: absolute;
+                bottom: -20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ff0000;
+                font-size: 9px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .fondue {
+        background: #ffffff url("../img/fondue.png") center right no-repeat;
+        background-size: contain;
     }
 }
 
