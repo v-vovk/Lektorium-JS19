@@ -13,6 +13,7 @@ body {
 .hero {
     width: 100%;
     height: 50vh;
+    min-height: 485px;
 
     .wrap {
         height: 100%;
@@ -221,6 +222,7 @@ body {
 
     .card {
         height: 50vh;
+        min-height: 485px;
         border-radius: 0;
         border: 0;
     }
@@ -426,11 +428,13 @@ body {
     }
 
     .fondue {
+        min-height: 485px;
         background: #ffffff url("../img/fondue.png") center right no-repeat;
         background-size: contain;
     }
 
     .louis-xx {
+        min-height: 485px;
         background: #ffffff url("../img/louis.png") center no-repeat;
         background-size: cover;
         width: 30%;
@@ -452,6 +456,7 @@ body {
     }
 
     .armchairs {
+        min-height: 485px;
         width: 70%;
         background: #eaeaea url("../img/armchairs.png") bottom left no-repeat;
         background-size: contain;
@@ -463,47 +468,10 @@ body {
         }
     }
 
-    .potter {
-        width: 100%;
-        height: 25vh;
-        background: #dfe0d9 url("../img/potter.png") center right no-repeat;
-        background-size: contain;
-
-        .project-card-container {
-            padding: 7%;
-        }
-    }
-
-    .tabano {
-        width: 100%;
-        height: 50vh;
-        background: #e9eae2 url("../img/tabano.png") top center no-repeat;
-        background-size: contain;
-        display: flex;
-        flex-direction: column-reverse;
-
-        .project-card-container {
-            flex-wrap: wrap;
-            height: 45%;
-        }
-    }
-
-    .fiji {
-        width: 100%;
-        height: 25vh;
-        background: #ffffff url("../img/fiji.png") center left no-repeat;
-        background-size: contain;
-        display: flex;
-        flex-direction: row-reverse;
-
-        .project-card-container {
-            padding: 10%;
-        }
-    }
-
     .sesann {
         width: 60%;
         height: 30vh;
+        min-height: 290px;
         background: #fcfcfc url("../img/sesann.png") top center no-repeat;
         background-size: contain;
         display: flex;
@@ -520,6 +488,7 @@ body {
     .alessi {
         width: 40%;
         height: 30vh;
+        min-height: 290px;
         background: #cecece url("../img/alessi.png") center left no-repeat;
         background-size: contain;
         display: flex;
@@ -538,9 +507,51 @@ body {
         }
     }
 
+    .potter {
+        width: 100%;
+        height: 25vh;
+        min-height: 240px;
+        background: #dfe0d9 url("../img/potter.png") center right no-repeat;
+        background-size: contain;
+
+        .project-card-container {
+            padding: 7%;
+        }
+    }
+
+    .tabano {
+        width: 100%;
+        height: 50vh;
+        min-height: 485px;
+        background: #e9eae2 url("../img/tabano.png") top center no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-direction: column-reverse;
+
+        .project-card-container {
+            flex-wrap: wrap;
+            height: 45%;
+        }
+    }
+
+    .fiji {
+        width: 100%;
+        height: 25vh;
+        min-height: 240px;
+        background: #ffffff url("../img/fiji.png") center left no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-direction: row-reverse;
+
+        .project-card-container {
+            padding: 10%;
+        }
+    }
+
     .timeline {
         width: 100%;
         height: 30vh;
+        min-height: 290px;
 
         .diagonal-container {
             padding: 0;
@@ -560,5 +571,4 @@ body {
         }
     }
 }
-
 // end project
