@@ -676,7 +676,106 @@ body {
       }
     }
   }
+
+  .row {
+    padding: 60px 0;
+  }
+
+  .staff {
+    margin-top: 20px;
+
+    &__title {
+      color: $middleGrey;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      color: $middleGrey;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  .staff-person {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__img {
+      width: 100%;
+    }
+
+    &-name {
+      margin-top: 20px;
+    }
+
+    &__title {
+      color: $middleGrey;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+
+    &__role,
+    .cv {
+      color: $middleGrey;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+
+    &-link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cv {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        background-image: url(../img/arrow_icon-orange.png);
+        background-size: cover;
+        width: 19px;
+        height: 15px;
+        top: calc(50% - 8px);
+        right: -25px;
+        display: flex;
+        align-items: center;
+        transition: all 0.4s;
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        &:after {
+          right: -30px;
+        }
+      }
+    }
+
+    .cv,
+    .fab {
+      color: #fd5000;
+    }
+
+    &-link-social a {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
-
-
 // end studio
