@@ -885,13 +885,61 @@ body {
 // footer
 #map {
   width: 50%;
-  height: 500px;
+  height: 100%;
 }
 
 .footer {
-  height: 50vh;
+  height: 75vh;
   min-height: 485px;
   display: flex;
   align-items: flex-start;
+
+  &-main {
+    width: 50%;
+    height: 100%;
+    padding: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .main-logo {
+      width: 100%;
+    }
+
+    .copy {
+      margin-top: 40px;
+      color: #191919;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  &-contact {
+    width: calc((100% / 2) - 10px);
+  }
+
+  .location-list {
+    margin-bottom: 30px;
+    padding: 0;
+    list-style: none;
+    max-width: 160px;
+    width: 100%;
+  }
+
+  .location-list__item {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-contact-location {
+    color: $middleGrey;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 12px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+  }
 }
 // end footer
