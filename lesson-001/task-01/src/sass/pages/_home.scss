@@ -881,3 +881,17 @@ body {
   }
 }
 // end news
+
+// footer
+#map {
+  width: 50%;
+  height: 500px;
+}
+
+.footer {
+  height: 50vh;
+  min-height: 485px;
+  display: flex;
+  align-items: flex-start;
+}
+// end footer
