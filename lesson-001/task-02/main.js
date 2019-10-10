@@ -34,47 +34,33 @@ function checkInputData (array) {
 }
 
 function minArrayItem (array) {
-  const trueArray = checkInputData(array)
-  let minElem = trueArray[0]
-
-  for (let i = 0; i < trueArray.length; i++) {
-    const arrayItem = trueArray[i]
-
-    if (arrayItem < minElem) {
-      minElem = arrayItem
+  let minElem = array[0]
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < minElem) {
+      minElem = array[i]
     }
   }
-
-  return console.log(`Мінімальне число: ${minElem}`)
+  return minElem
 }
 
 function maxArrayItem (array) {
-  const trueArray = checkInputData(array)
-  let maxElem = trueArray[0]
-
-  for (let i = 0; i < trueArray.length; i++) {
-    const arrayItem = trueArray[i]
-
-    if (arrayItem > maxElem) {
-      maxElem = arrayItem
+  let maxElem = array[0]
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > maxElem) {
+      maxElem = array[i]
     }
   }
-
-  return console.log(`Максимальне число: ${maxElem}`)
+  return maxElem
 }
 
 function sumOfArrayItems (array) {
-  const trueArray = checkInputData(array)
   let sumElem = 0
-
-  for (let i = 0; i < trueArray.length; i++) {
-    const arrayItem = trueArray[i]
-    sumElem += arrayItem
+  for (let i = 0; i < array.length; i++) {
+    sumElem += array[i]
   }
-
-  return console.log(`Сума чисил: ${sumElem}`)
+  return sumElem
 }
 
-minArrayItem(dataArray)
-maxArrayItem(dataArray)
-sumOfArrayItems(dataArray)
+console.log(`Min число: ${minArrayItem(checkInputData(dataArray))}`)
+console.log(`Max число: ${maxArrayItem(checkInputData(dataArray))}`)
+console.log(`Сума чисил: ${sumOfArrayItems(checkInputData(dataArray))}`)
