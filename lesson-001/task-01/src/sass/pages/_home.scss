@@ -16,7 +16,7 @@ body {
   min-height: 485px;
 
   @media (max-width: 990px) {
-    height: 100vh;
+    height: auto;
   }
 
   .wrap {
@@ -26,6 +26,7 @@ body {
 
     @media (max-width: 990px) {
       flex-wrap: wrap;
+      height: auto;
     }
   }
 
@@ -38,6 +39,7 @@ body {
     height: 100%;
     @media (max-width: 990px) {
       height: 50%;
+      min-height: 450px;
     }
   }
 
@@ -137,6 +139,11 @@ body {
     justify-content: flex-start;
     background: #f8c255;
 
+    @media (max-width: 1084px) {
+      flex-direction: column-reverse;
+      right: calc(50% - 120px);
+    }
+
     &-list {
       margin: 0;
       padding: 0;
@@ -145,8 +152,18 @@ body {
       justify-content: flex-start;
       list-style: none;
 
+      @media (max-width: 1084px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
       & > * {
         margin-right: 70px;
+
+        @media (max-width: 1084px) {
+          margin: 0;
+        }
       }
 
       &__link {

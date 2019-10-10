@@ -5,7 +5,8 @@ const closeBtn = document.querySelector('.fa-times');
 const mainMenuBtn = document.querySelector('.hero-contact-menu');
 const mainMenu = document.querySelector('.hero-contact-nav');
 
-function toggleMenu() {
+function toggleMenu(e) {
+  e.preventDefault()
   mainMenu.classList.toggle('active');
 }
 
@@ -18,7 +19,7 @@ let map;
 
 function initMap() {
   map = new google.maps.Map(document.querySelector('#map'), {
-    center: {lat: 33.770050, lng: -118.193741},
+    center: { lat: 33.770050, lng: -118.193741 },
     zoom: 12,
     styles: [
       {
@@ -199,13 +200,13 @@ function initMap() {
   });
 
   let marker = new google.maps.Marker({
-    position: {lat: 33.770050, lng: -118.193741},
+    position: { lat: 33.770050, lng: -118.193741 },
     map: map,
     title: 'Наш маркер: З макету авокод'
   });
 
-  google.maps.event.addListener(marker, 'click', function() {
-    document.location='https://www.google.com/maps/place/%D0%9B%D0%BE%D0%BD%D0%B3-%D0%91%D0%B8%D1%87,+%D0%9A%D0%B0%D0%BB%D0%B8%D1%84%D0%BE%D1%80%D0%BD%D0%B8%D1%8F,+%D0%A1%D0%A8%D0%90/@33.7394818,-118.3536101,12z/data=!4m13!1m7!3m6!1s0x80dd35ae16ed8aa5:0x4147d57f086875f!2z0KHQsNC9INCf0LXQtNGA0L4sINCb0L7RgS3QkNC90LTQttC10LvQtdGBLCDQmtCw0LvQuNGE0L7RgNC90LjRjywg0KHQqNCQ!3b1!8m2!3d33.7360619!4d-118.2922461!3m4!1s0x80c2cae84099d759:0xa1003afac42a8faa!8m2!3d33.7700152!4d-118.1937504';
+  google.maps.event.addListener(marker, 'click', function () {
+    document.location = 'https://www.google.com/maps/place/%D0%9B%D0%BE%D0%BD%D0%B3-%D0%91%D0%B8%D1%87,+%D0%9A%D0%B0%D0%BB%D0%B8%D1%84%D0%BE%D1%80%D0%BD%D0%B8%D1%8F,+%D0%A1%D0%A8%D0%90/@33.7394818,-118.3536101,12z/data=!4m13!1m7!3m6!1s0x80dd35ae16ed8aa5:0x4147d57f086875f!2z0KHQsNC9INCf0LXQtNGA0L4sINCb0L7RgS3QkNC90LTQttC10LvQtdGBLCDQmtCw0LvQuNGE0L7RgNC90LjRjywg0KHQqNCQ!3b1!8m2!3d33.7360619!4d-118.2922461!3m4!1s0x80c2cae84099d759:0xa1003afac42a8faa!8m2!3d33.7700152!4d-118.1937504';
   });
 }
 // end google map
