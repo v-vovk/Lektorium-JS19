@@ -1,12 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
   const peppa = document.querySelector('.peppa')
   const mangal = document.querySelector('.mangal')
+  const scorePeppa = document.querySelector('.scoresPeppa')
+  const scoreMangal = document.querySelector('.scoresMangal')
 
   let xPeppa = 0
   let yPeppa = 0
 
   let xMangal = 0
   let yMangal = 0
+
+  let pointPeppa = 0
+  let pointMangal = 0
+
+  function debounce (func, wait = 20, immediate = true) {
+    var timeout
+    return function () {
+      var context = this
+      var args = arguments
+      var later = function () {
+        timeout = null
+        if (!immediate) func.apply(context, args)
+      }
+      var callNow = immediate && !timeout
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+      if (callNow) func.apply(context, args)
+    }
+  }
 
   function moveMangal () {
     mangal.style.left = xMangal + 'px'
@@ -48,11 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (peppaRect.bottom > mangalRect.top && peppaRect.top < mangalRect.bottom && peppaRect.right > mangalRect.left && peppaRect.left < mangalRect.right) {
       playSound()
+      scorePeppa.innerHTML = `Peppa score: ${--pointPeppa}`
+      scoreMangal.innerHTML = `Mangal score: ${++pointMangal}`
+    } else {
+      scorePeppa.innerHTML = `Peppa score: ${++pointPeppa}`
     }
   }
 
-  document.addEventListener('mousemove', startGrill, false)
-  document.addEventListener('mousemove', checkPigDie, false)
+  document.addEventListener('mousemove', debounce(startGrill), false)
+  document.addEventListener('mousemove', debounce(checkPigDie), false)
 
   setInterval(moveMangal, 500)
   setInterval(movePeppa, 500)
