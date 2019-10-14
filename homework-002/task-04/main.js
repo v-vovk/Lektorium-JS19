@@ -80,5 +80,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('mousemove', debounce(checkPigDie), false)
 
   setInterval(moveMangal, 500)
-  setInterval(movePeppa, 500)
+  setInterval(movePeppa, 100)
 })
