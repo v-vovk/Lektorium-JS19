@@ -34,33 +34,23 @@ function checkInputData (array) {
 }
 
 function minArrayItem (array) {
-  let minElem = array[0]
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] < minElem) {
-      minElem = array[i]
-    }
-  }
-  return minElem
+  return array.reduce((a, b) => (a > b) ? b : a)
 }
 
 function maxArrayItem (array) {
-  let maxElem = array[0]
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > maxElem) {
-      maxElem = array[i]
-    }
-  }
-  return maxElem
+  return array.reduce((a, b) => (a > b) ? a : b)
 }
 
 function sumOfArrayItems (array) {
-  let sumElem = 0
-  for (let i = 0; i < array.length; i++) {
-    sumElem += array[i]
-  }
-  return sumElem
+  return array.reduce((a, b) => a + b, 0)
 }
 
-console.log(`Min число: ${minArrayItem(checkInputData(dataArray))}`)
-console.log(`Max число: ${maxArrayItem(checkInputData(dataArray))}`)
-console.log(`Сума чисил: ${sumOfArrayItems(checkInputData(dataArray))}`)
+function allArraysValue (array, min, max, sum) {
+  return {
+    min: min(array),
+    max: max(array),
+    sum: sum(array)
+  }
+}
+
+console.table(allArraysValue(checkInputData(dataArray), minArrayItem, maxArrayItem, sumOfArrayItems))
