@@ -1,0 +1,17 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.peppa {
+  width: 50px;
+  height: 50px;
+  background: url("./img/peppa.png") no-repeat;
+  background-size: 50px 50px;
+  margin: -25px 0 0 -25px;
+  position: absolute;
+  transition: top 0.5s, left 0.5s;
+  -webkit-transition: top 0.5s, left 0.5s;
+}
