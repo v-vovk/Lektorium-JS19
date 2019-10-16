@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const coinsChange = clientChange - Math.floor(clientChange)
 
     clientChange = Math.floor(clientChange)
-    console.log(coinsChange)
 
     const coinsAvaible = [0.5, 0.25, 0.1, 0.05, 0.02, 0.01]
     const moneyAvaible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
