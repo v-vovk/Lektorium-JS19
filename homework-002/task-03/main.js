@@ -30,13 +30,56 @@ document.addEventListener('DOMContentLoaded', function () {
     return yourChange
   }
 
-  form.addEventListener('submit', () => {
+  function countCoinsChange (change, moneyWeHave) {
+    const yourCoinsChange = []
+
+    moneyWeHave.forEach(item => {
+      if (Math.floor(change / item) >= 1) {
+        yourCoinsChange.push({
+          Монета: item,
+          Количество: Math.floor(change / item)
+        })
+
+        const changeListItem = `
+          <li class="kassa-change-list__item">
+            <span class="key">₴ ${item}</span>
+            <span class="value">${Math.floor(change / item)}</span>
+          </li>
+        `
+
+        changeList.innerHTML += changeListItem
+
+        change -= (item * Math.floor(change / item))
+      }
+    })
+
+    return yourCoinsChange
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const changeListItem = `
+      <li class="kassa-change-list__item">
+        <span class="key">Купюра:</span>
+        <span class="value">Количество:</span>
+      </li>
+    `
+    changeList.innerHTML = changeListItem
+
     const moneyWeGet = clientMoneyInput.value
     const price = priceInput.value
 
-    const clientChange = moneyWeGet - price
+    let clientChange = moneyWeGet - price
+    const coinsChange = clientChange - Math.floor(clientChange)
+
+    clientChange = Math.floor(clientChange)
+    console.log(coinsChange)
+
+    const coinsAvaible = [0.5, 0.25, 0.1, 0.05, 0.02, 0.01]
     const moneyAvaible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
 
     countChange(clientChange, moneyAvaible)
+    countCoinsChange(coinsChange, coinsAvaible)
   })
 })
