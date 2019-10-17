@@ -1,84 +1,70 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('.kassa__form')
-  const priceInput = document.querySelector('.kassa__price')
-  const clientMoneyInput = document.querySelector('.kassa__client-money')
-  const changeList = document.querySelector('.kassa-change-list')
 
-  function countChange (change, moneyWeHave) {
-    const yourChange = []
+const kassa = document.querySelector('.kassa-container')
+const form = kassa.querySelector('.kassa__form')
 
-    moneyWeHave.forEach(item => {
-      if (Math.floor(change / item) >= 1) {
-        yourChange.push({
-          Купюра: item,
-          Количество: Math.floor(change / item)
-        })
+const moneyAvaible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+const coinsAvaible = [0.5, 0.25, 0.1, 0.05, 0.02, 0.01]
 
-        const changeListItem = `
-          <li class="kassa-change-list__item">
-            <span class="key">₴${item}</span>
-            <span class="value">${Math.floor(change / item)}</span>
-          </li>
-        `
+function countChange (form, bank, cent) {
+  const price = form.querySelector('.kassa__price').value
+  const moneyWeGet = form.querySelector('.kassa__client-money').value
 
-        changeList.innerHTML += changeListItem
+  const yourChange = []
 
-        change -= (item * Math.floor(change / item))
-      }
-    })
+  let clientChange = moneyWeGet - price
+  let coinsChange = clientChange - Math.floor(clientChange)
 
-    return yourChange
-  }
+  clientChange = Math.floor(clientChange)
 
-  function countCoinsChange (change, moneyWeHave) {
-    const yourCoinsChange = []
+  bank.forEach(item => {
+    if (Math.floor(clientChange / item) >= 1) {
+      yourChange.push({
+        banknot: item,
+        counts: Math.floor(clientChange / item)
+      })
 
-    moneyWeHave.forEach(item => {
-      if (Math.floor(change / item) >= 1) {
-        yourCoinsChange.push({
-          Монета: item,
-          Количество: Math.floor(change / item)
-        })
+      clientChange -= (item * Math.floor(clientChange / item))
+    }
+  })
 
-        const changeListItem = `
-          <li class="kassa-change-list__item">
-            <span class="key">₴ ${item}</span>
-            <span class="value">${Math.floor(change / item)}</span>
-          </li>
-        `
+  cent.forEach(item => {
+    if (Math.floor(coinsChange / item) >= 1) {
+      yourChange.push({
+        banknot: item,
+        counts: Math.floor(coinsChange / item)
+      })
 
-        changeList.innerHTML += changeListItem
+      coinsChange -= (item * Math.floor(coinsChange / item))
+    }
+  })
 
-        change -= (item * Math.floor(change / item))
-      }
-    })
+  return yourChange
+}
 
-    return yourCoinsChange
-  }
+function makeRender (change, kassa) {
+  const changeList = kassa.querySelector('.kassa-change-list')
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-
-    const changeListItem = `
+  let changeListItem = `
       <li class="kassa-change-list__item">
         <span class="key">Купюра:</span>
         <span class="value">Количество:</span>
       </li>
     `
-    changeList.innerHTML = changeListItem
+  changeList.innerHTML = changeListItem
 
-    const moneyWeGet = clientMoneyInput.value
-    const price = priceInput.value
-
-    let clientChange = moneyWeGet - price
-    const coinsChange = clientChange - Math.floor(clientChange)
-
-    clientChange = Math.floor(clientChange)
-
-    const coinsAvaible = [0.5, 0.25, 0.1, 0.05, 0.02, 0.01]
-    const moneyAvaible = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
-
-    countChange(clientChange, moneyAvaible)
-    countCoinsChange(coinsChange, coinsAvaible)
+  change.forEach(item => {
+    console.log(item)
+    changeListItem = `
+      <li class="kassa-change-list__item">
+        <span class="key">₴${item.banknot}</span>
+        <span class="value">${item.counts}</span>
+      </li>
+    `
+    changeList.innerHTML += changeListItem
   })
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  makeRender(countChange(form, moneyAvaible, coinsAvaible), kassa)
 })
