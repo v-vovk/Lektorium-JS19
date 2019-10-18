@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Касир - трудяга</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&display=swap&subset=cyrillic"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="kassa">
+        <div class="kassa-container">
+            <h1 class="kassa__title">
+                Галя! Атмена!
+            </h1>
+            <form action="#" class="kassa__form">
+                <label for="" class="kassa__label">
+                    <span class="kassa__label-value">Цена ₴</span>
+                    <input type="text" class="kassa__input kassa__price">
+                </label>
+                <label for="" class="kassa__label">
+                    <span class="kassa__label-value">Получено денег ₴</span>
+                    <input type="text" class="kassa__input kassa__client-money">
+                </label>
+                <input type="submit" class="kassa__submit" value="Порахуй">
+            </form>
+            <h2 class="kassa-change__title">
+                Здача:
+            </h2>
+            <ul class="kassa-change-list">
+                <li class="kassa-change-list__item">
+                    <span class="key">Купюра:</span>
+                    <span class="value">Количество:</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
