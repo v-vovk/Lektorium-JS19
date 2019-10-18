@@ -65,7 +65,7 @@ const moneyAvaible = [
   },
   {
     banknot: 0.01,
-    counts: Infinity
+    counts: +Infinity
   }
 ]
 
