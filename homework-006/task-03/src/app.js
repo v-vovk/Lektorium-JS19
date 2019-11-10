@@ -59,81 +59,29 @@ const isMissing = arr => {
 isMissing([1, 4, 3])
 
 // 9. // isBalanced - Takes a string and returns true or false indicating whether its curly braces are balanced.
-class Node {
-  constructor (val) {
-    this.val = val
-    this.next = null
-  }
-}
+const isBalanced = string => {
+  let open = []
 
-class Stack {
-  constructor () {
-    this.first = null
-    this.last = null
-    this.size = 0
+  const openBrackets = new Set(['(', '[', '{'])
+
+  const bracketCorrespondence = {
+    ')': '(',
+    ']': '[',
+    '}': '{'
   }
 
-  // unshift
-  push (val) {
-    const newNode = new Node(val)
-    let oldFirst
-    if (!this.first) {
-      this.first = this.last = newNode
-    } else {
-      oldFirst = this.first
-      this.first = newNode
-      newNode.next = oldFirst
-    }
-    return ++this.size
-  }
-
-  // shift
-  pop () {
-    if (!this.first) return null
-    const removed = this.first
-    this.first = this.first.next
-    this.size--
-    if (this.size === 0) {
-      this.last = null
-    }
-    return removed.val
-  }
-}
-
-function isOpeningParanthese (char) {
-  return char === '(' || char === '{' || char === '['
-}
-
-function isClosingParanthese (char) {
-  return char === ')' || char === '}' || char === ']'
-}
-
-function isPair (char1, char2) {
-  const brackets = {
-    '{': '}',
-    '(': ')',
-    '[': ']'
-  }
-  return brackets[char1] === char2
-}
-
-function balancedParentheses (str) {
-  const stack = new Stack()
-  let result = true
-  for (const s of str) {
-    if (isOpeningParanthese(s)) {
-      stack.push(s)
-    } else if (isClosingParanthese(s)) {
-      const top = stack.first ? stack.first.val : ''
-      if (isPair(top, s)) {
-        stack.pop()
-      } else {
-        result = false
-        break
-      }
+  for (let c of string) {
+    if (openBrackets.has(c)) {
+      open.push(c)
+    } else if (
+      bracketCorrespondence[c] &&
+      open.pop() !== bracketCorrespondence[c]
+    ) {
+      return false
     }
   }
 
-  return stack.size === 0 && result
+  return !open.length
 }
-console.log(balancedParentheses('(a+b)*(d-c)'))
+
+isBalanced('foo { bar { baz } boo }')
