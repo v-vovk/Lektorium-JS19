@@ -1,0 +1,50 @@
+body {
+  font-family: sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+.tagging-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  margin: auto;
+  border: 1px solid black;
+  width: 512px;
+  height: 512px;
+}
+
+.tagging-element {
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(34, 34, 34, 0.75);
+  opacity: 0.9;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.tagging-title {
+  padding: 5px 15px;
+  display: inline-block;
+  user-select: none;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.delete {
+  position: absolute;
+  top: -1px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(34, 34, 34, 0.75);
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.delete.hide {
+  visibility: hidden;
+}
+
+.delete.pull-left {
+  right: 100%;
+}
